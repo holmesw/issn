@@ -10,18 +10,48 @@ This function library contains functions to:
 
 ##XQuery##
 
-To use the ISBN XQuery functions, first import the isbn.xqy module into the prolog desired main module or library module of your XQuery code base: 
+To use the ISSN XQuery functions, first import the issn.xqy module into the prolog of the desired main or library module of your XQuery code base, as follows: 
 
 ```xquery
-    xquery version "3.0";
-    
     import module namespace issn = "http://github.com/holmesw/issn" at "/xqy/modules/issn.xqy";
 ```
 
 ###Format ISSN###
 
 An **ISSN**s is formatted in the following way: NNNN-NNNC 
-This means that 12345679 is formatted as: 1234-5679
 
-##XSLT##
+This means that the example ISSN "12345679" is formatted as: 1234-5679
+
+Here is an example of how to format an ISSN: 
+
+```xquery
+    xquery version "3.0";
+    
+    import module namespace issn = "http://github.com/holmesw/issn" at "/xqy/modules/issn.xqy";
+    
+    issn:format-issn("12345679"), 
+    (: the output of the above function call is: "1234-5679" :)
+    
+    issn:format-issn("1234-5679"), 
+    (: the output of the above function call is: "1234-5679" :)
+    
+    ()
+```
+
+##XSLT 2.0##
+
+To use the XSLT 2.0 functions, import the ISSN XSLT 2.0 function library (with the ISSBN XSLT function namespace) into your style sheet.  
+Example: 
+
+```xslt
+    <?xml version="1.0" encoding="UTF-8"?>
+    <xsl:stylesheet 
+        xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+        xmlns:issn="http://github.com/holmesw/issn" 
+        exclude-result-prefixes="isbn" 
+        version="2.0">
+        
+        <xsl:include href="/xsl/issn.xsl"/>
+    </xsl:stylesheet>
+```
 
