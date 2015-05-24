@@ -1,6 +1,6 @@
 #ISSN XQuery 3.0 and XSLT 2.0 Function Library#
 
-ISSNs (or **International Standard Serial Number**s), are used by publishers (and others) to identify periodical publications  of different media types (e.g. print or electronic etc.)  
+ISSNs (or International Standard Serial Numbers), are used by publishers (and others) to identify periodical publications  of different media types (e.g. print or electronic etc.)  
 
 This function library contains functions to: 
 *   Format ISSNs
@@ -13,12 +13,14 @@ This function library contains functions to:
 To use the ISSN XQuery functions, first import the issn.xqy module into the prolog of the desired main or library module of your XQuery code base, as follows: 
 
 ```xquery
-    import module namespace issn = "http://github.com/holmesw/issn" at "/xqy/modules/issn.xqy";
+    import module namespace issn = 
+      "http://github.com/holmesw/issn" at 
+      "/xqy/modules/issn.xqy";
 ```
 
 ###Format ISSN###
 
-An **ISSN** is formatted in the following way: 
+An ISSN is formatted in the following way: 
 ``NNNN-NNNC`` 
 
 This means that the example ISSN "12345679" is formatted as: 1234-5679
@@ -51,7 +53,7 @@ Example:
     <xsl:stylesheet 
         xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
         xmlns:issn="http://github.com/holmesw/issn" 
-        exclude-result-prefixes="isbn" 
+        exclude-result-prefixes="issn" 
         version="2.0">
         
         <xsl:include href="/xsl/issn.xsl"/>
